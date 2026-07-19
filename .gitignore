@@ -1,7 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+env/
+
+# Dataset files
 data/raw/
 data/processed/
-uploads/
-venv/
-__pycache__/
 *.csv
+
+# User uploads
+uploads/
+
+# Model files (if very large)
+*.h5
+*.keras
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
 classroom/
