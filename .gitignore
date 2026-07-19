@@ -1,5 +1,6 @@
+data/raw/
+data/processed/
+uploads/
 venv/
 __pycache__/
-*.pyc
-uploads/
-.env
+*.csv
