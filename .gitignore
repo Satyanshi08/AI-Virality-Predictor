@@ -33,3 +33,4 @@ uploads/
 classroom/
 
 *.pyc
+test_*.py
