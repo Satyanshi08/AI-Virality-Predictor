@@ -179,17 +179,14 @@ http://127.0.0.1:5000
 
 ## Application Screenshots
 
-(Add screenshots here)
+### Home Page
 
-Example:
-
-```
 ![Homepage](assets/homepage.png)
 
-![Prediction Result](assets/result.png)
-```
+### Prediction Result
 
----
+![Result](assets/result.png)
+
 
 ## Future Improvements
 
