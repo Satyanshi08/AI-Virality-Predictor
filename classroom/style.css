@@ -1,0 +1,46 @@
+h1{
+    color: red;
+}
+h2{
+    color:aquamarine;
+}
+button{
+    color: rgb(91, 60, 153);
+    background-color: rgb(122, 114, 131);
+}
+body{
+    background-color: #ffff00;
+}
+p{
+    text-align: center;
+}
+h1{
+    text-align: center;
+}
+h2{
+    text-align: center;
+    text-decoration: red wavy underline;
+}
+a{
+    text-decoration: none;
+}
+#h1{
+    font-weight: 100;
+}
+#h2{
+    font-weight: 6    00;
+}
+#h3{
+    font-weight: 800;
+}
+#one{
+    font-family:Helvetica, sans-serif;
+}
+#p1{
+    font-size: 10px;
+    line-height: 80px;
+    text-transform: lowercase;
+}
+#p2{
+    font-size: 45px;
+}
