@@ -41,7 +41,7 @@ def analyze_video(video_path):
     if success:
 
         # Resize for faster processing
-        frame = cv2.resize(frame, (640, 360))
+        frame = cv2.resize(frame, (320,180))
 
 
         brightness = frame.mean()
@@ -59,7 +59,7 @@ def analyze_video(video_path):
             gray,
             scaleFactor=1.2,
             minNeighbors=8,
-            minSize=(60,60)
+            minSize=(40,40)
         )
 
         face_count = len(faces)
@@ -78,84 +78,45 @@ def analyze_video(video_path):
 
     # ---------------- Motion + Scene Analysis ----------------
 
-
-    cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
-
-
-    ret, prev_frame = cap.read()
-
+    total_frames = int(frame_count)
     motion_values = []
 
+    if total_frames > 1:
 
-    if ret:
+      SAMPLE_COUNT = 40  # Analyze at most 40 frames
 
-        prev_frame = cv2.resize(
-            prev_frame,
-            (640,360)
-        )
+      step = max(1, total_frames // SAMPLE_COUNT)
 
-        prev_gray = cv2.cvtColor(
-            prev_frame,
-            cv2.COLOR_BGR2GRAY
-        )
+      prev_gray = None
+      motion_values = []
 
+      for i in range(0, total_frames, step):
 
-        frame_number = 0
+        cap.set(cv2.CAP_PROP_POS_FRAMES, i)
 
-        SAMPLE_RATE = 15
+        ret, curr_frame = cap.read()
 
+        if not ret:
+            continue
 
-        while True:
+        curr_frame = cv2.resize(curr_frame, (320, 180))
 
-            ret, curr_frame = cap.read()
+        curr_gray = cv2.cvtColor(curr_frame, cv2.COLOR_BGR2GRAY)
 
-            if not ret:
-                break
+        if prev_gray is not None:
 
+            diff = cv2.absdiff(prev_gray, curr_gray)
 
-            frame_number += 1
-
-
-            # Skip frames
-            if frame_number % SAMPLE_RATE != 0:
-                continue
-
-
-            curr_frame = cv2.resize(
-                curr_frame,
-                (640,360)
-            )
-
-
-            curr_gray = cv2.cvtColor(
-                curr_frame,
-                cv2.COLOR_BGR2GRAY
-            )
-
-
-            diff = cv2.absdiff(
-                prev_gray,
-                curr_gray
-            )
-
-
-            score = diff.mean()
-
+            score = float(diff.mean())
 
             motion_values.append(score)
 
-
-            # Scene change
             if score > 40:
                 scene_changes += 1
 
-
-            prev_gray = curr_gray
-
-
+        prev_gray = curr_gray
 
     if motion_values:
-
         motion_score = sum(motion_values) / len(motion_values)
 
 
