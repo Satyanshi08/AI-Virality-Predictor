@@ -18,8 +18,7 @@ os.makedirs("static", exist_ok=True)
 # YouTube API Configuration
 # -----------------------------------
 
-YOUTUBE_API_KEY = os.environ.get("AIzaSyB_P1_VjIVAc_-_nPvlKmnDkufJRGt8spE")
-#YOUTUBE_API_KEY = "AIzaSyB_P1_VjIVAc_-_nPvlKmnDkufJRGt8spE"
+YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY")
 
 
 
