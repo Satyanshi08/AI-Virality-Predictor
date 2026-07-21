@@ -127,17 +127,30 @@ def analyze_video(video_path):
 
     # ---------------- AI Features ----------------
 
-    from hook_score import hook_score
+    #from hook_score import hook_score
     #from emotion_score import emotion_score
-    from audio_score import audio_energy_score
+    #from audio_score import audio_energy_score
 
 
+    #hook = hook_score(video_path)
+
+    #emotion = 50
+
+    #audio = audio_energy_score(video_path)
+    print("STARTING HOOK")
+    from hook_score import hook_score
     hook = hook_score(video_path)
+    print("HOOK DONE")
 
+
+    print("SKIPPING EMOTION FOR TEST")
     emotion = 50
 
-    audio = audio_energy_score(video_path)
 
+    print("STARTING AUDIO")
+    from audio_score import audio_energy_score
+    audio = audio_energy_score(video_path)
+    print("AUDIO DONE")
 
 
     return {
