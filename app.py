@@ -1,4 +1,3 @@
-from video_analyzer import analyze_video
 from flask import Flask, render_template, request
 import os
 import yt_dlp
@@ -132,7 +131,7 @@ def home():
         # ==================================================
 
         elif video and video.filename:
-
+            from video_analyzer import analyze_video
             save_path = os.path.join(
                 UPLOAD_FOLDER,
                 video.filename

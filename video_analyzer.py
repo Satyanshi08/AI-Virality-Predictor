@@ -1,8 +1,5 @@
 import cv2
 import os
-from hook_score import hook_score
-from emotion_score import emotion_score
-from audio_score import audio_energy_score
 
 face_cascade = cv2.CascadeClassifier(
     cv2.data.haarcascades +
@@ -94,6 +91,10 @@ def analyze_video(video_path):
                 prev_gray = curr_gray
 
     cap.release()
+
+    from hook_score import hook_score
+    from emotion_score import emotion_score
+    from audio_score import audio_energy_score
 
     # 🔥 AI FEATURES
     hook = hook_score(video_path)
