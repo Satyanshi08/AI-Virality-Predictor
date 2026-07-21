@@ -1,11 +1,6 @@
 import cv2
 import os
 
-print("CV2 module:", cv2)
-print("CV2 file:", getattr(cv2, "__file__", "No file"))
-print("CV2 version:", getattr(cv2, "__version__", "Unknown"))
-print("Has CascadeClassifier:", hasattr(cv2, "CascadeClassifier"))
-
 face_cascade = cv2.CascadeClassifier(
     cv2.data.haarcascades +
     "haarcascade_frontalface_default.xml"
