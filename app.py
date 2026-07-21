@@ -140,21 +140,21 @@ def home():
             video.save(save_path)
 
             #analysis = analyze_video(save_path)
-        analysis = {
-           "duration": 10,
-           "fps": 30,
-           "width": 640,
-           "height": 360,
-           "thumbnail": None,
-           "brightness": 100,
-           "contrast": 30,
-           "motion_score": 20,
-           "scene_changes": 5,
-           "face_count": 1,
-           "hook_score": 50,
-           "emotion_score": 50,
-           "audio_energy_score": 50
-}
+            analysis = {
+                "duration": 10,
+                "fps": 30,
+                "width": 640,
+                "height": 360,
+                "thumbnail": None,
+                "brightness": 100,
+                "contrast": 30,
+                "motion_score": 20,
+                "scene_changes": 5,
+                "face_count": 1,
+                "hook_score": 50,
+                "emotion_score": 50,
+                "audio_energy_score": 50
+            }
 
             virality_score = (
 
